@@ -16,4 +16,11 @@
 @property (nonatomic, getter = isComplete) BOOL complete;
 @property (strong, nonatomic) NSDate *dueDate;
 
+- (instancetype)initWithTitle:(NSString *)title;
+
+- (instancetype)initWithTitle:(NSString *)title
+                  description:(NSString *)desc
+                     priority:(NSNumber *)priority
+                      dueDate:(NSDate *)dueDate;
+
 @end

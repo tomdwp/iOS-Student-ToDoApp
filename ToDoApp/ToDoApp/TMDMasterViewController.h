@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMDToDoItemCollection.h"
 
 @interface TMDMasterViewController : UITableViewController
 
