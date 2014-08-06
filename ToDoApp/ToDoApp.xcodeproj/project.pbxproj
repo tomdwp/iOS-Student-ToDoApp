@@ -22,6 +22,8 @@
 		632E526C1992BACF00686E28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632E524B1992BACE00686E28 /* UIKit.framework */; };
 		632E52741992BACF00686E28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 632E52721992BACF00686E28 /* InfoPlist.strings */; };
 		632E52761992BACF00686E28 /* ToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52751992BACF00686E28 /* ToDoAppTests.m */; };
+		632E52811992BEFD00686E28 /* TMDToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52801992BEFD00686E28 /* TMDToDoItem.m */; };
+		632E52841992C1BA00686E28 /* TMDToDoItemCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52831992C1BA00686E28 /* TMDToDoItemCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		632E52711992BACF00686E28 /* ToDoAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoAppTests-Info.plist"; sourceTree = "<group>"; };
 		632E52731992BACF00686E28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		632E52751992BACF00686E28 /* ToDoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoAppTests.m; sourceTree = "<group>"; };
+		632E527F1992BEFD00686E28 /* TMDToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDToDoItem.h; sourceTree = "<group>"; };
+		632E52801992BEFD00686E28 /* TMDToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDToDoItem.m; sourceTree = "<group>"; };
+		632E52821992C1BA00686E28 /* TMDToDoItemCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDToDoItemCollection.h; sourceTree = "<group>"; };
+		632E52831992C1BA00686E28 /* TMDToDoItemCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDToDoItemCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				632E525D1992BACF00686E28 /* TMDMasterViewController.m */,
 				632E525F1992BACF00686E28 /* TMDDetailViewController.h */,
 				632E52601992BACF00686E28 /* TMDDetailViewController.m */,
+				632E52821992C1BA00686E28 /* TMDToDoItemCollection.h */,
+				632E52831992C1BA00686E28 /* TMDToDoItemCollection.m */,
+				632E527F1992BEFD00686E28 /* TMDToDoItem.h */,
+				632E52801992BEFD00686E28 /* TMDToDoItem.m */,
 				632E52621992BACF00686E28 /* Images.xcassets */,
 				632E524E1992BACE00686E28 /* Supporting Files */,
 			);
@@ -257,7 +267,9 @@
 			files = (
 				632E525E1992BACF00686E28 /* TMDMasterViewController.m in Sources */,
 				632E52581992BACF00686E28 /* TMDAppDelegate.m in Sources */,
+				632E52811992BEFD00686E28 /* TMDToDoItem.m in Sources */,
 				632E52541992BACF00686E28 /* main.m in Sources */,
+				632E52841992C1BA00686E28 /* TMDToDoItemCollection.m in Sources */,
 				632E52611992BACF00686E28 /* TMDDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
