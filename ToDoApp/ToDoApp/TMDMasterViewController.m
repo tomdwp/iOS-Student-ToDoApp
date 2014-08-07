@@ -11,10 +11,7 @@
 
 
 
-@interface TMDMasterViewController () {
-
-//NSMutableArray *_objects;
-}
+@interface TMDMasterViewController ()
 
 @property (strong, nonatomic) TMDToDoItemCollection *toDoCollection;
     
@@ -61,25 +58,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.toDoCollection.size;
+    if (section == 0) {
+        
+        return [self.toDoCollection groupCount];
+        
+    } else {
+        
+        return [self.toDoCollection toDoItemCount];
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    //NSDate *object = _objects[indexPath.row];
-    //cell.textLabel.text = [object description];
     
-    cell.textLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].title;
-    cell.detailTextLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].detailedDescription;
-    
-    return cell;
+    if (indexPath.section == 0) {
+        // deal with group section
+        
+        UITableViewCell *groupCell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
+        
+        groupCell.textLabel.text = [self.toDoCollection groupAtIndex:indexPath.row];
+        
+        return groupCell;
+        
+    } else {
+        
+        // deal with to-do item section
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
+        
+        cell.textLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].title;
+        cell.detailTextLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].detailedDescription;
+        
+        return cell;
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,12 +133,22 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        //NSDate *object = _objects[indexPath.row];
-        TMDToDoItem *toDoItemSelected = [self.toDoCollection itemAtIndex:indexPath.row];
+        if (indexPath.section == 0) {
+            //handle group configuration
+            
+        } else {
+            
+            //handle To-Do Item configuration
+            
+            TMDToDoItem *toDoItemSelected = [self.toDoCollection itemAtIndex:indexPath.row];
+            
+            [[segue destinationViewController] setToDoItem:toDoItemSelected];
+            
+        }
         
-        [[segue destinationViewController] setDetailItem:toDoItemSelected];
     }
 }
 

@@ -8,6 +8,12 @@
 
 #import "TMDToDoItem.h"
 
+@interface TMDToDoItem ()
+
+@property (strong, nonatomic) NSDate *createDate;
+
+@end
+
 @implementation TMDToDoItem
 
 
@@ -34,6 +40,7 @@
         _priority = priority;
         _complete = NO;
         _dueDate = [dueDate copy];
+        _createDate = [[NSDate alloc] init];
         
         
     }

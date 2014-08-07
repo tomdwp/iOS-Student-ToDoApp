@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *detailedDescription;
 @property (strong, nonatomic) NSNumber *priority;
 @property (nonatomic, getter = isComplete) BOOL complete;
+@property (strong, nonatomic, readonly) NSDate *createDate;
 @property (strong, nonatomic) NSDate *dueDate;
 
 - (instancetype)initWithTitle:(NSString *)title;

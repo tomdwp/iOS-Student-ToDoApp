@@ -14,7 +14,10 @@
 @property (strong, nonatomic, readonly) NSMutableArray *toDoItems;
 @property (strong, nonatomic) NSString *applicationName;
 
-- (NSUInteger)size;
+- (NSUInteger)toDoItemCount;
+- (NSUInteger)groupCount;
 - (TMDToDoItem *)itemAtIndex:(NSUInteger)index;
+- (NSString *)groupAtIndex:(NSUInteger)index;
+
 
 @end

@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *toDoItems;
 
-@property (strong, nonatomic) NSMutableDictionary *toDoItemsDictionary;
+@property (strong, nonatomic) NSMutableDictionary *groupsAndItems;
 
 
 
@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         _toDoItems = [[NSMutableArray alloc] init];
+        _groupsAndItems = [[NSMutableDictionary alloc] init];
         _applicationName = @"To-Do App";
         
         
@@ -33,14 +34,22 @@
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"buy milk"]];
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"do laundry"]];
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"water plants"]];
+        
+        _groupsAndItems[@"All"] = [_toDoItems mutableCopy];
+        _groupsAndItems[@"Fishing Trip"] = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 
-- (NSUInteger)size
+- (NSUInteger)toDoItemCount
 {
     return [self.toDoItems count];
+}
+
+- (NSUInteger)groupCount
+{
+    return [[self.groupsAndItems allKeys] count];
 }
 
 - (TMDToDoItem *)itemAtIndex:(NSUInteger)index
@@ -49,6 +58,23 @@
         return nil;
     } else {
         return [self.toDoItems objectAtIndex:index];
+    }
+}
+
+
+- (NSString *)groupAtIndex:(NSUInteger)index
+{
+    if (index >= [[self.groupsAndItems allKeys] count]) {
+        return nil;
+    } else {
+        return [[self.groupsAndItems allKeys] objectAtIndex:index];
+    }
+}
+
+- (void)addGroup:(NSString *)newGroupName
+{
+    if ([self.groupsAndItems objectForKey:newGroupName] == nil) {
+        [self.groupsAndItems setObject:[[NSMutableArray alloc] init] forKey:newGroupName];
     }
 }
 

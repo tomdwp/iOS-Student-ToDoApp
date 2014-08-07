@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMDToDoItem.h"
 
 @interface TMDDetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) TMDToDoItem *toDoItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextField *toDoTitleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *toDoDescriptionTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *toDoPrioritySegmentControl;
+@property (weak, nonatomic) IBOutlet UISwitch *toDoCompleteSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *toDoHasDueDateSwitch;
+@property (weak, nonatomic) IBOutlet UIDatePicker *toDoDueDatePicker;
+
+
+
 @end
