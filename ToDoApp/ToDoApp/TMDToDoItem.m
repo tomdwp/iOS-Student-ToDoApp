@@ -19,14 +19,22 @@
 
 - (instancetype)init
 {
-    return nil;
+    return [self initWithTitle:@""
+                   description:nil
+                      priority:nil
+                       dueDate:nil];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
 {
-    return [self initWithTitle:title description:nil priority:nil dueDate:nil];
+    return [self initWithTitle:title
+                   description:nil
+                      priority:nil
+                       dueDate:nil];
 }
 
+
+// designated initializer
 - (instancetype)initWithTitle:(NSString *)title
                   description:(NSString *)desc
                      priority:(NSNumber *)priority

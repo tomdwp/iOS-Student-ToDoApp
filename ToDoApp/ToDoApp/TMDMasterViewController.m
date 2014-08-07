@@ -113,6 +113,7 @@
         if ([[self.toDoCollection itemAtIndex:indexPath.row].priority integerValue] == 0) {
             customCell.toDoPriorityTextField.hidden = YES;
         } else {
+            customCell.toDoPriorityTextField.hidden = NO;
             customCell.toDoPriorityTextField.text = [[self.toDoCollection itemAtIndex:indexPath.row].priority stringValue];
         }
         

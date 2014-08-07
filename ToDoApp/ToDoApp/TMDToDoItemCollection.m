@@ -36,6 +36,7 @@
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"water plants"]];
         ((TMDToDoItem *)(_toDoItems[1])).detailedDescription = @"do wash with colors and whites";
         ((TMDToDoItem *)(_toDoItems[1])).priority = @2;
+        ((TMDToDoItem *)(_toDoItems[0])).priority = @3;
         ((TMDToDoItem *)(_toDoItems[1])).dueDate = [NSDate distantFuture];
         
         _groupsAndItems[@"All"] = [_toDoItems mutableCopy];
