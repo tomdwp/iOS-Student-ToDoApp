@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *toDoHasDueDateSwitch;
 @property (weak, nonatomic) IBOutlet UIDatePicker *toDoDueDatePicker;
 
+- (IBAction)dueDateSwitchChanged:(UISwitch *)sender;
 
 
 @end

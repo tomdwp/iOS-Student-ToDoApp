@@ -38,6 +38,13 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear called on TMDMasterViewController...");
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -129,6 +136,16 @@
     return YES;
 }
 */
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        NSLog(@"selected group row");
+        
+    } else if (indexPath.section == 1) {
+        NSLog(@"selected to-do item row");
+    }
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

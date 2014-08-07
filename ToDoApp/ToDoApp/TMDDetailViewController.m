@@ -9,7 +9,7 @@
 #import "TMDDetailViewController.h"
 
 @interface TMDDetailViewController ()
-- (void)configureView;
+- (void)updateUI;
 
 @end
 
@@ -23,11 +23,11 @@
         _toDoItem = newToDoItem;
         
         // Update the view.
-        [self configureView];
+        [self updateUI];
     }
 }
 
-- (void)configureView
+- (void)updateUI
 {
     // Update the user interface for the detail item.
 
@@ -41,14 +41,59 @@
         self.toDoHasDueDateSwitch.on = self.toDoItem.dueDate == nil? NO : YES;
         self.toDoDueDatePicker.hidden = self.toDoItem.dueDate == nil? YES : NO;
         
-    }
+        if (self.toDoItem.dueDate != nil) {
+            self.toDoDueDatePicker.date = self.toDoItem.dueDate;
+        }
+    } 
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    [self updateUI];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear called...");
+    
+    if (self.toDoItem) {
+        
+        // the title is the only 'required' field for a To-Do Item, so checking that it's not blank or nil
+        if (![self.toDoTitleTextField.text isEqualToString:@""] && (self.toDoTitleTextField.text != nil)) {
+            self.toDoItem.title = self.toDoTitleTextField.text;
+        }
+        self.toDoItem.detailedDescription = self.toDoDescriptionTextField.text;
+        self.toDoItem.priority = @(self.toDoPrioritySegmentControl.selectedSegmentIndex);
+        self.toDoItem.complete = self.toDoCompleteSwitch.on;
+        
+        if (self.toDoHasDueDateSwitch.on) {
+            self.toDoItem.dueDate = self.toDoDueDatePicker.date;
+        } else {
+            // if dueDate switch is 'off', we want to clear the dueDate in the toDoItem object
+            self.toDoItem.dueDate = nil;
+        }
+        
+        self.toDoHasDueDateSwitch.on = self.toDoItem.dueDate == nil? NO : YES;
+        self.toDoDueDatePicker.hidden = self.toDoItem.dueDate == nil? YES : NO;
+        
+        if (self.toDoItem.dueDate != nil) {
+            self.toDoDueDatePicker.date = self.toDoItem.dueDate;
+        }
+    }
+    
+    
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"viewDidDisappear called and disappearing....");
+    [super viewDidDisappear:animated];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,4 +102,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dueDateSwitchChanged:(UISwitch *)sender
+{
+    if (sender.isOn) {
+        self.toDoDueDatePicker.hidden = NO;
+    } else {
+        self.toDoDueDatePicker.hidden = YES;
+    }
+}
 @end

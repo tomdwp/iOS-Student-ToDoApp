@@ -34,6 +34,9 @@
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"buy milk"]];
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"do laundry"]];
         [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"water plants"]];
+        ((TMDToDoItem *)(_toDoItems[1])).detailedDescription = @"do wash with colors and whites";
+        ((TMDToDoItem *)(_toDoItems[1])).priority = @2;
+        ((TMDToDoItem *)(_toDoItems[1])).dueDate = [NSDate distantFuture];
         
         _groupsAndItems[@"All"] = [_toDoItems mutableCopy];
         _groupsAndItems[@"Fishing Trip"] = [[NSMutableArray alloc] init];
