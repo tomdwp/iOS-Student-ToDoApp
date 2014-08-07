@@ -89,6 +89,7 @@
         
         UITableViewCell *groupCell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
         
+        
         groupCell.textLabel.text = [self.toDoCollection groupAtIndex:indexPath.row];
         
         return groupCell;
@@ -96,12 +97,27 @@
     } else {
         
         // deal with to-do item section
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
+//        
+//        cell.textLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].title;
+//        cell.detailTextLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].detailedDescription;
+//        
+//        return cell;
         
-        cell.textLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].title;
-        cell.detailTextLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].detailedDescription;
+        [self.tableView registerNib:[UINib nibWithNibName:@"TMDMasterTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"CustomCell"];
         
-        return cell;
+        TMDMasterTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+        
+        customCell.toDoTitleLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].title;
+        customCell.toDoDetailLabel.text = [self.toDoCollection itemAtIndex:indexPath.row].detailedDescription;
+        if ([[self.toDoCollection itemAtIndex:indexPath.row].priority integerValue] == 0) {
+            customCell.toDoPriorityTextField.hidden = YES;
+        } else {
+            customCell.toDoPriorityTextField.text = [[self.toDoCollection itemAtIndex:indexPath.row].priority stringValue];
+        }
+        
+        return customCell;
+        
     }
 }
 
@@ -144,6 +160,14 @@
         
     } else if (indexPath.section == 1) {
         NSLog(@"selected to-do item row");
+        
+//        TMDDetailViewController *detailViewController = [[TMDDetailViewController alloc] init];
+//        
+//        detailViewController.toDoItem = [self.toDoCollection itemAtIndex:indexPath.row];
+//        
+//        [self.navigationController pushViewController:detailViewController animated:YES];
+        
+        [self performSegueWithIdentifier:@"showDetail" sender:self];
     }
 }
 
