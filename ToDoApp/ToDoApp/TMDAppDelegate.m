@@ -35,6 +35,19 @@ NSString* const kToDoAppArchiveFileName = @"TMDToDoApp_archive";
     }
     
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    
+    id defaultDaysInFutureForDueDate = [userDefaults objectForKey:@"TMDToDoApp.defaultTimeInFutureForDueDate"];
+    
+    if (!defaultDaysInFutureForDueDate) {
+        NSLog(@"TMDToDoApp.defaultTimeInFutureForDueDate not found in NSUserDefaults.  Resetting to 14");
+        [userDefaults setInteger:14 forKey:@"TMDToDoApp.defaultTimeInFutureForDueDate"];
+    }
+    //NSInteger theHighScore = [defaults integerForKey:@"HighScore"];
+    
+    NSLog(@"defaultDaysInFutureForDueDate is:  %@", defaultDaysInFutureForDueDate);
     
     return YES;
 }

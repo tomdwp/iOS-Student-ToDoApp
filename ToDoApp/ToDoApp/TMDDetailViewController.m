@@ -44,7 +44,14 @@
         if (self.toDoItem.dueDate != nil) {
             self.toDoDueDatePicker.date = self.toDoItem.dueDate;
         }
-    } 
+    } else {
+        
+        //adding a new to-do item, don't want date spinner to appear unless they have enabled a due date
+        if (self.toDoHasDueDateSwitch.isOn == NO) {
+            self.toDoDueDatePicker.hidden = YES;
+        }
+        
+    }
 }
 
 - (void)viewDidLoad
