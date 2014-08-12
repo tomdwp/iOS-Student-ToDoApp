@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TMDToDoItem : NSObject
+@interface TMDToDoItem : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *detailedDescription;

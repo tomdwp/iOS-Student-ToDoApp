@@ -8,6 +8,9 @@
 
 #import "TMDToDoItemCollection.h"
 
+NSString *const kToDoItemsArrayKey = @"To Do Items Array Key";
+NSString *const kToDoGroupsDictionaryKey = @"To Do Group Dictionary Key";
+
 @interface TMDToDoItemCollection ()
 
 @property (strong, nonatomic) NSMutableArray *toDoItems;
@@ -31,13 +34,13 @@
         
         
         // hard code some items to start out
-        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"buy milk"]];
-        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"do laundry"]];
-        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"water plants"]];
-        ((TMDToDoItem *)(_toDoItems[1])).detailedDescription = @"do wash with colors and whites";
-        ((TMDToDoItem *)(_toDoItems[1])).priority = @2;
-        ((TMDToDoItem *)(_toDoItems[0])).priority = @3;
-        ((TMDToDoItem *)(_toDoItems[1])).dueDate = [NSDate distantFuture];
+//        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"buy milk"]];
+//        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"do laundry"]];
+//        [_toDoItems addObject: [[TMDToDoItem alloc] initWithTitle:@"water plants"]];
+//        ((TMDToDoItem *)(_toDoItems[1])).detailedDescription = @"do wash with colors and whites";
+//        ((TMDToDoItem *)(_toDoItems[1])).priority = @2;
+//        ((TMDToDoItem *)(_toDoItems[0])).priority = @3;
+//        ((TMDToDoItem *)(_toDoItems[1])).dueDate = [NSDate distantFuture];
         
         _groupsAndItems[@"All"] = [_toDoItems mutableCopy];
         _groupsAndItems[@"Fishing Trip"] = [[NSMutableArray alloc] init];
@@ -82,5 +85,35 @@
     }
 }
 
+- (void)addToDoItemWithTitle:(NSString *)titleText
+         detailedDescription:(NSString *)detailedDescriptionText
+                    priority:(NSNumber *)newPriority
+                    complete:(BOOL)completionStatus
+                     dueDate:(NSDate *)newDueDate
+{
+    TMDToDoItem *newItem = [[TMDToDoItem alloc] initWithTitle:titleText
+                                                  description:detailedDescriptionText
+                                                     priority:newPriority
+                                                      dueDate:newDueDate];
+    [self.toDoItems addObject:newItem];
+}
+
+#pragma mark - NSCoding methods
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.toDoItems forKey:kToDoItemsArrayKey];
+    [coder encodeObject:self.groupsAndItems forKey:kToDoGroupsDictionaryKey];
+}
+
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    if (self) {
+        _toDoItems = [coder decodeObjectForKey:kToDoItemsArrayKey];
+        _groupsAndItems = [coder decodeObjectForKey:kToDoGroupsDictionaryKey];
+    }
+    return self;
+}
 
 @end

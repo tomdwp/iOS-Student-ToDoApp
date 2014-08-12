@@ -56,7 +56,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"viewWillDisappear called...");
+    NSLog(@"viewWillDisappear called... \n self.toDoItem = %@", self.toDoItem);
     
     if (self.toDoItem) {
         
@@ -81,7 +81,35 @@
         if (self.toDoItem.dueDate != nil) {
             self.toDoDueDatePicker.date = self.toDoItem.dueDate;
         }
+    } else {
+        
+        // in this case, we need to create a new to-do item
+        
+        NSLog(@"ParentViewController:  %@", self.parentViewController.title);
+        
+        //need to check that atleast a title has been entered
+        if (![self.toDoTitleTextField.text isEqualToString:@""] && (self.toDoTitleTextField.text != nil)) {
+            
+            NSDate *newDueDate = nil;
+            if (self.toDoHasDueDateSwitch.on) {
+                newDueDate = self.toDoDueDatePicker.date;
+            }
+            
+            TMDMasterViewController *masterViewController = [self.navigationController.viewControllers firstObject];
+            
+//            NSLog(@"ParentViewController is: %@", [self.parentViewController class]);
+//            NSLog(@"PresentingViewController is: %@", [self.presentingViewController class]);
+//            NSLog(@"PresentedViewController is: %@", [self.presentedViewController class]);
+            
+            [masterViewController addToDoItemWithTitle:self.toDoTitleTextField.text
+                                        detailedDescription:self.toDoDescriptionTextField.text
+                                                   priority:@(self.toDoPrioritySegmentControl.selectedSegmentIndex)
+                                                   complete:self.toDoCompleteSwitch.on
+                                                    dueDate:newDueDate ];
+        }
+        
     }
+    
     
     
     [super viewWillDisappear:animated];
@@ -110,4 +138,11 @@
         self.toDoDueDatePicker.hidden = YES;
     }
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.toDoTitleTextField resignFirstResponder];
+    [self.toDoDescriptionTextField resignFirstResponder];
+}
+
 @end

@@ -8,6 +8,14 @@
 
 #import "TMDToDoItem.h"
 
+NSString *const kToDoCreateDateKey = @"To Do Create Date Key";
+NSString *const kToDoDueDateKey = @"To Do Due Date Key";
+NSString *const kToDoTitleKey = @"To Do Title Key";
+NSString *const kToDoDetailedDescriptionKey = @"To Do Detailed Description Key";
+NSString *const kToDoPriorityKey = @"To Do Priority Key";
+NSString *const kToDoCompleteKey = @"To Do Complete Key";
+
+
 @interface TMDToDoItem ()
 
 @property (strong, nonatomic) NSDate *createDate;
@@ -57,7 +65,37 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"To-Do Item: Title: [%@]  Detail: [%@] Priority: [%@] DueDate: [%@]", self.title, self.detailedDescription, self.priority, self.dueDate];
+}
 
+
+#pragma mark - NSCoding methods
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.title forKey:kToDoTitleKey];
+    [coder encodeObject:self.detailedDescription forKey:kToDoDetailedDescriptionKey];
+    [coder encodeObject:self.priority forKey:kToDoPriorityKey];
+    [coder encodeBool:self.complete forKey:kToDoCompleteKey];
+    [coder encodeObject:self.createDate forKey:kToDoCreateDateKey];
+    [coder encodeObject:self.dueDate forKey:kToDoDueDateKey];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    if (self) {
+        _title = [coder decodeObjectForKey:kToDoTitleKey];
+        _detailedDescription = [coder decodeObjectForKey:kToDoDetailedDescriptionKey];
+        _priority = [coder decodeObjectForKey:kToDoPriorityKey];
+        _complete = [coder decodeBoolForKey:kToDoCompleteKey];
+        _createDate = [coder decodeObjectForKey:kToDoCreateDateKey];
+        _dueDate = [coder decodeObjectForKey:kToDoDueDateKey];
+    }
+    return self;
+}
 
 
 @end

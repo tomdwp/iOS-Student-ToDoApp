@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TMDToDoItem.h"
 
-@interface TMDToDoItemCollection : NSObject
+@interface TMDToDoItemCollection : NSObject <NSCoding>
 
 @property (strong, nonatomic, readonly) NSMutableArray *toDoItems;
 @property (strong, nonatomic) NSString *applicationName;
@@ -18,6 +18,12 @@
 - (NSUInteger)groupCount;
 - (TMDToDoItem *)itemAtIndex:(NSUInteger)index;
 - (NSString *)groupAtIndex:(NSUInteger)index;
+
+- (void)addToDoItemWithTitle:(NSString *)titleText
+         detailedDescription:(NSString *)detailedDescriptionText
+                    priority:(NSNumber *)newPriority
+                    complete:(BOOL)completionStatus
+                     dueDate:(NSDate *)newDueDate;
 
 
 @end

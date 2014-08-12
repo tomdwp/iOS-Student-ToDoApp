@@ -13,7 +13,7 @@
 
 @interface TMDMasterViewController ()
 
-@property (strong, nonatomic) TMDToDoItemCollection *toDoCollection;
+
     
 @end
 
@@ -29,12 +29,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.toDoCollection = [[TMDToDoItemCollection alloc] init];
+    if (!self.toDoCollection) {
+        self.toDoCollection = [[TMDToDoItemCollection alloc] init];
+    }
     self.title = self.toDoCollection.applicationName;
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showNewToDoItemView:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -51,7 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (void)showNewToDoItemView:(id)sender
 {
 //    if (!_objects) {
 //        _objects = [[NSMutableArray alloc] init];
@@ -59,6 +61,21 @@
 //    [_objects insertObject:[NSDate date] atIndex:0];
 //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+}
+
+- (void)addToDoItemWithTitle:(NSString *)titleText detailedDescription:(NSString *)detailedDescriptionText
+                                                            priority:(NSNumber *)newPriority
+                    complete:(BOOL)completionStatus
+                     dueDate:(NSDate *)newDueDate
+
+{
+    [self.toDoCollection addToDoItemWithTitle:titleText
+                          detailedDescription:detailedDescriptionText
+                                     priority:newPriority
+                                     complete:completionStatus
+                                      dueDate:newDueDate];
 }
 
 #pragma mark - Table View
@@ -125,7 +142,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

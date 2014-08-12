@@ -12,4 +12,13 @@
 
 @interface TMDMasterViewController : UITableViewController
 
+
+@property (strong, nonatomic) TMDToDoItemCollection *toDoCollection;
+
+- (void)addToDoItemWithTitle:(NSString *)titleText
+         detailedDescription:(NSString *)detailedDescriptionText
+                    priority:(NSNumber *)newPriority
+                    complete:(BOOL)completionStatus
+                     dueDate:(NSDate *)newDueDate;
+
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>918D15EE-0559-4CC6-A50E-0C95A6D7FB92</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ToDoApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DA20A101-94F4-4955-8A52-29E4F96A11AE</key>
+		<string>https://github.com/tomdwp/iOS-Student-ToDoApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ToDoApp/ToDoApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DA20A101-94F4-4955-8A52-29E4F96A11AE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tomdwp/iOS-Student-ToDoApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA20A101-94F4-4955-8A52-29E4F96A11AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA20A101-94F4-4955-8A52-29E4F96A11AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Student-ToDoApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

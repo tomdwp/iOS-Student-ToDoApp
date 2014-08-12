@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TMDToDoItem.h"
+#import "TMDMasterViewController.h"
+@class TMDToDoItem;
+
 
 @interface TMDDetailViewController : UIViewController
 
