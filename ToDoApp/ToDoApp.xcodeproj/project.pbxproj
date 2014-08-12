@@ -26,6 +26,7 @@
 		632E52841992C1BA00686E28 /* TMDToDoItemCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52831992C1BA00686E28 /* TMDToDoItemCollection.m */; };
 		632E52881993258E00686E28 /* TMDMasterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52861993258E00686E28 /* TMDMasterTableViewCell.m */; };
 		632E52891993258E00686E28 /* TMDMasterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */; };
+		639D93E61999A56D00295DBC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 639D93E51999A56D00295DBC /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		632E52851993258E00686E28 /* TMDMasterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDMasterTableViewCell.h; sourceTree = "<group>"; };
 		632E52861993258E00686E28 /* TMDMasterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDMasterTableViewCell.m; sourceTree = "<group>"; };
 		632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMDMasterTableViewCell.xib; sourceTree = "<group>"; };
+		639D93E51999A56D00295DBC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */,
 				632E525F1992BACF00686E28 /* TMDDetailViewController.h */,
 				632E52601992BACF00686E28 /* TMDDetailViewController.m */,
+				639D93E51999A56D00295DBC /* Settings.bundle */,
 				632E52821992C1BA00686E28 /* TMDToDoItemCollection.h */,
 				632E52831992C1BA00686E28 /* TMDToDoItemCollection.m */,
 				632E527F1992BEFD00686E28 /* TMDToDoItem.h */,
@@ -254,6 +257,7 @@
 			files = (
 				632E52631992BACF00686E28 /* Images.xcassets in Resources */,
 				632E52521992BACF00686E28 /* InfoPlist.strings in Resources */,
+				639D93E61999A56D00295DBC /* Settings.bundle in Resources */,
 				632E525B1992BACF00686E28 /* Main.storyboard in Resources */,
 				632E52891993258E00686E28 /* TMDMasterTableViewCell.xib in Resources */,
 			);
@@ -485,6 +489,7 @@
 				632E527B1992BACF00686E28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		632E527C1992BACF00686E28 /* Build configuration list for PBXNativeTarget "ToDoAppTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				632E527E1992BACF00686E28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

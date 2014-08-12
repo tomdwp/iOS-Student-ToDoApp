@@ -141,6 +141,17 @@
 {
     if (sender.isOn) {
         self.toDoDueDatePicker.hidden = NO;
+        if (self.toDoItem == nil || self.toDoItem.dueDate == nil) {
+            
+        
+            NSUInteger defaultNumberOfDaysInFutureToSetDueDate = [[NSUserDefaults standardUserDefaults] integerForKey:@"TMDToDoApp.defaultTimeInFutureForDueDate"];
+            
+            //NSTimeInterval is in seconds
+            //so the calculation is:  3600*24*numberOfDaysInFuture
+            
+            self.toDoDueDatePicker.date = [[[NSDate alloc] init] dateByAddingTimeInterval:(3600 * 24 * defaultNumberOfDaysInFutureToSetDueDate) ];
+        }
+        
     } else {
         self.toDoDueDatePicker.hidden = YES;
     }
