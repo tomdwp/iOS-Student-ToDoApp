@@ -8,12 +8,7 @@
 
 #import "TMDToDoItem.h"
 
-NSString *const kToDoCreateDateKey = @"To Do Create Date Key";
-NSString *const kToDoDueDateKey = @"To Do Due Date Key";
-NSString *const kToDoTitleKey = @"To Do Title Key";
-NSString *const kToDoDetailedDescriptionKey = @"To Do Detailed Description Key";
-NSString *const kToDoPriorityKey = @"To Do Priority Key";
-NSString *const kToDoCompleteKey = @"To Do Complete Key";
+
 
 
 @interface TMDToDoItem ()
@@ -24,6 +19,12 @@ NSString *const kToDoCompleteKey = @"To Do Complete Key";
 
 @implementation TMDToDoItem
 
+static NSString *const kToDoCreateDateKey = @"To Do Create Date Key";
+static NSString *const kToDoDueDateKey = @"To Do Due Date Key";
+static NSString *const kToDoTitleKey = @"To Do Title Key";
+static NSString *const kToDoDetailedDescriptionKey = @"To Do Detailed Description Key";
+static NSString *const kToDoPriorityKey = @"To Do Priority Key";
+static NSString *const kToDoCompleteKey = @"To Do Complete Key";
 
 - (instancetype)init
 {

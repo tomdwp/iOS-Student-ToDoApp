@@ -8,6 +8,7 @@
 
 #import "TMDMasterViewController.h"
 #import "TMDDetailViewController.h"
+#import "TMDPersistanceManager.h"
 
 
 
@@ -22,6 +23,13 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    self.toDoCollection = [TMDPersistanceManager loadToDoData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveToDoItemData)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -29,9 +37,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    if (!self.toDoCollection) {
-        self.toDoCollection = [[TMDToDoItemCollection alloc] init];
-    }
     self.title = self.toDoCollection.applicationName;
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -209,6 +214,18 @@
         }
         
     }
+}
+
+- (void)saveToDoItemData
+{
+    [TMDPersistanceManager saveToDoData:self.toDoCollection];
+}
+
+- (void)dealloc
+{
+    //need to stop listening for notification
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 @end

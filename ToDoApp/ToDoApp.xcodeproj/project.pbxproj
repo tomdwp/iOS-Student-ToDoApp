@@ -27,6 +27,7 @@
 		632E52881993258E00686E28 /* TMDMasterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E52861993258E00686E28 /* TMDMasterTableViewCell.m */; };
 		632E52891993258E00686E28 /* TMDMasterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */; };
 		639D93E61999A56D00295DBC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 639D93E51999A56D00295DBC /* Settings.bundle */; };
+		639D93E91999BA1B00295DBC /* TMDPersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D93E81999BA1B00295DBC /* TMDPersistanceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		632E52861993258E00686E28 /* TMDMasterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDMasterTableViewCell.m; sourceTree = "<group>"; };
 		632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMDMasterTableViewCell.xib; sourceTree = "<group>"; };
 		639D93E51999A56D00295DBC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		639D93E71999BA1B00295DBC /* TMDPersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDPersistanceManager.h; sourceTree = "<group>"; };
+		639D93E81999BA1B00295DBC /* TMDPersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDPersistanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				632E52591992BACF00686E28 /* Main.storyboard */,
 				632E525C1992BACF00686E28 /* TMDMasterViewController.h */,
 				632E525D1992BACF00686E28 /* TMDMasterViewController.m */,
+				639D93E71999BA1B00295DBC /* TMDPersistanceManager.h */,
+				639D93E81999BA1B00295DBC /* TMDPersistanceManager.m */,
 				632E52851993258E00686E28 /* TMDMasterTableViewCell.h */,
 				632E52861993258E00686E28 /* TMDMasterTableViewCell.m */,
 				632E52871993258E00686E28 /* TMDMasterTableViewCell.xib */,
@@ -281,6 +286,7 @@
 				632E525E1992BACF00686E28 /* TMDMasterViewController.m in Sources */,
 				632E52581992BACF00686E28 /* TMDAppDelegate.m in Sources */,
 				632E52881993258E00686E28 /* TMDMasterTableViewCell.m in Sources */,
+				639D93E91999BA1B00295DBC /* TMDPersistanceManager.m in Sources */,
 				632E52811992BEFD00686E28 /* TMDToDoItem.m in Sources */,
 				632E52541992BACF00686E28 /* main.m in Sources */,
 				632E52841992C1BA00686E28 /* TMDToDoItemCollection.m in Sources */,
